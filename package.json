@@ -1,0 +1,17 @@
+{
+  "name": "bonding-curve-nft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yurii Kabannik",
+  "license": "MIT",
+  "devDependencies": {
+    "@animoca/ethereum-contracts": "^4.0.0-rc.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^4.9.6",
+    "hardhat": "^2.22.5"
+  }
+}
