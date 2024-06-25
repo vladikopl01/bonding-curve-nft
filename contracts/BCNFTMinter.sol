@@ -20,7 +20,9 @@ contract BCNFTMinter is ERC721Minter, Context {
 
     error ZeroAddress();
 
-    constructor(ICurve _curve, IERC20 _feeToken, address _feeReceiver, uint256 maxTokenId, IERC721Mintable token) ERC721Minter(maxTokenId, token) {
+    constructor(ICurve _curve, IERC20 _feeToken, address _feeReceiver, uint256 maxTokenId, IERC721Mintable token)
+        ERC721Minter(maxTokenId, token)
+    {
         if (!IERC165(address(_curve)).supportsInterface(type(ICurve).interfaceId)) {
             revert InvalidCurveContractType(address(_curve));
         }
@@ -33,7 +35,7 @@ contract BCNFTMinter is ERC721Minter, Context {
     }
 
     function mint(address to) public override {
-        uint256 price = curve.calculatePrice(currentId(), 1);
+        uint256 price = curve.calculatePrice(currentTokenId(), 1);
         feeToken.safeTransferFrom(_msgSender(), feeReceiver, price);
         super.mint(to);
     }

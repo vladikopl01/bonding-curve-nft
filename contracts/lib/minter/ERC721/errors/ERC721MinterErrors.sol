@@ -1,8 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-error ERC721MinterZeroValue();
+/// @notice Thrown when the token ID is zero.
+error ERC721MinterZeroMaxTokenId();
 
-error ERC721MinterIncorrectTokenContractType(address tokenContract);
+/// @notice Thrown when the token address is zero.
+error ERC721MinterZeroTokenAddress();
 
-error ERC721MinterMaxTokenId();
+/// @notice Thrown when the token contract interface id does not supported.
+error ERC721MinterUnsupportedContractType(address tokenContract);
+
+/// @notice Thrown when the maximum token ID is exceeded.
+error ERC721MinterMaxTokenIdExceeded();
