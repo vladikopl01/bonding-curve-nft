@@ -1,0 +1,119 @@
+{
+  "mocha": {
+    "timeout": 0,
+    "allow-uncaught": true,
+    "diff": true,
+    "extension": [
+      "js"
+    ],
+    "recursive": true,
+    "reporter": "spec",
+    "require": [
+      "hardhat/register"
+    ],
+    "slow": 0,
+    "spec": "test/**/*.test.js",
+    "ui": "bdd",
+    "watch": false,
+    "watch-files": [
+      "contracts/**/*.sol",
+      "test/**/*.js"
+    ],
+    "watch-ignore": [
+      "node_modules",
+      ".git"
+    ]
+  },
+  "gasReporter": {
+    "enabled": false
+  },
+  "solidity": {
+    "compilers": [
+      {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 99999
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      }
+    ],
+    "overrides": {}
+  },
+  "defaultNetwork": "hardhat",
+  "paths": {
+    "root": "/Users/vladikopl/code/work/animoca/bonding-curve-nft",
+    "configFile": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/hardhat.config.js",
+    "sources": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/contracts",
+    "cache": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/cache",
+    "artifacts": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/artifacts",
+    "tests": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/test",
+    "deployments": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/deployments",
+    "imports": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/imports",
+    "deploy": [
+      "/Users/vladikopl/code/work/animoca/bonding-curve-nft/deploy"
+    ],
+    "flattened": "/Users/vladikopl/code/work/animoca/bonding-curve-nft/flattened"
+  },
+  "networks": {
+    "hardhat": {
+      "hardfork": "cancun",
+      "blockGasLimit": 30000000,
+      "gasPrice": "auto",
+      "chainId": 31337,
+      "throwOnTransactionFailures": true,
+      "throwOnCallFailures": true,
+      "allowUnlimitedContractSize": false,
+      "mining": {
+        "auto": true,
+        "interval": 0,
+        "mempool": {
+          "order": "priority"
+        }
+      },
+      "loggingEnabled": false,
+      "gasMultiplier": 1,
+      "minGasPrice": "0",
+      "chains": {},
+      "gas": 30000000,
+      "initialDate": "2024-06-26T10:55:56.085Z"
+    },
+    "localhost": {
+      "gas": "auto",
+      "gasPrice": "auto",
+      "gasMultiplier": 1,
+      "httpHeaders": {},
+      "timeout": 40000,
+      "url": "http://127.0.0.1:8545"
+    }
+  },
+  "namedAccounts": {},
+  "verify": {},
+  "docgen": {
+    "root": "/Users/vladikopl/code/work/animoca/bonding-curve-nft",
+    "sourcesDir": "contracts"
+  }
+}
