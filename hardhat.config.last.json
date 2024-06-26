@@ -99,7 +99,7 @@
       "minGasPrice": "0",
       "chains": {},
       "gas": 30000000,
-      "initialDate": "2024-06-26T10:55:56.085Z"
+      "initialDate": "2024-06-26T11:04:18.641Z"
     },
     "localhost": {
       "gas": "auto",
