@@ -20,9 +20,7 @@ abstract contract LinearCurve is LinearCurveBase, InterfaceDetection, ContractOw
     /// @param price The initial price.
     /// @param numerator The slope numerator.
     /// @param denominator The slope denominator.
-    constructor(address initialOwner, uint256 price, uint256 numerator, uint256 denominator)
-        ContractOwnership(initialOwner)
-    {
+    constructor(address initialOwner, uint256 price, uint256 numerator, uint256 denominator) ContractOwnership(initialOwner) {
         LinearCurveStorage.layout().constructorInit(price, numerator, denominator, _msgSender());
     }
 }

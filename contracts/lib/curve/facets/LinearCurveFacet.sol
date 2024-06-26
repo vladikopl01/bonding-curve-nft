@@ -2,8 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {Context} from "@openzeppelin/contracts/utils/Context.sol";
-import {ForwarderRegistryContextBase} from
-    "@animoca/ethereum-contracts/contracts/metatx/base/ForwarderRegistryContextBase.sol";
+import {ForwarderRegistryContextBase} from "@animoca/ethereum-contracts/contracts/metatx/base/ForwarderRegistryContextBase.sol";
 import {IForwarderRegistry} from "@animoca/ethereum-contracts/contracts/metatx/interfaces/IForwarderRegistry.sol";
 import {ProxyAdminStorage} from "@animoca/ethereum-contracts/contracts/proxy/libraries/ProxyAdminStorage.sol";
 import {LinearCurveBase} from "../base/LinearCurveBase.sol";
@@ -43,13 +42,7 @@ contract LinearCurveFacet is LinearCurveBase, ForwarderRegistryContextBase {
     }
 
     /// @inheritdoc ForwarderRegistryContextBase
-    function _msgData()
-        internal
-        view
-        virtual
-        override(Context, ForwarderRegistryContextBase)
-        returns (bytes calldata)
-    {
+    function _msgData() internal view virtual override(Context, ForwarderRegistryContextBase) returns (bytes calldata) {
         return ForwarderRegistryContextBase._msgData();
     }
 }

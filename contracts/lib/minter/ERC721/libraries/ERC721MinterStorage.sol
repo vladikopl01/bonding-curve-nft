@@ -1,18 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import {InterfaceDetectionStorage} from
-    "@animoca/ethereum-contracts/contracts/introspection/libraries/InterfaceDetectionStorage.sol";
+// solhint-disable-next-line max-line-length
+import {ERC721MinterZeroMaxTokenId, ERC721MinterUnsupportedContractType, ERC721MinterMaxTokenIdExceeded, ERC721MinterZeroTokenAddress} from "../errors/ERC721MinterErrors.sol";
+import {InterfaceDetectionStorage} from "@animoca/ethereum-contracts/contracts/introspection/libraries/InterfaceDetectionStorage.sol";
 import {IERC165} from "@animoca/ethereum-contracts/contracts/introspection/interfaces/IERC165.sol";
 import {IERC721Mintable} from "@animoca/ethereum-contracts/contracts/token/ERC721/interfaces/IERC721Mintable.sol";
 import {ProxyInitialization} from "@animoca/ethereum-contracts/contracts/proxy/libraries/ProxyInitialization.sol";
 import {IERC721Minter} from "../interfaces/IERC721Minter.sol";
-import {
-    ERC721MinterZeroMaxTokenId,
-    ERC721MinterUnsupportedContractType,
-    ERC721MinterMaxTokenIdExceeded,
-    ERC721MinterZeroTokenAddress
-} from "../errors/ERC721MinterErrors.sol";
 
 library ERC721MinterStorage {
     using ERC721MinterStorage for ERC721MinterStorage.Layout;
@@ -24,10 +19,8 @@ library ERC721MinterStorage {
         IERC721Mintable token;
     }
 
-    bytes32 internal constant LAYOUT_STORAGE_SLOT =
-        bytes32(uint256(keccak256("yura2100.token.ERC721.ERC721Minter.storage")) - 1);
-    bytes32 internal constant PROXY_INIT_PHASE_SLOT =
-        bytes32(uint256(keccak256("yura2100.token.ERC721.ERC721Minter.phase")) - 1);
+    bytes32 internal constant LAYOUT_STORAGE_SLOT = bytes32(uint256(keccak256("yura2100.token.ERC721.ERC721Minter.storage")) - 1);
+    bytes32 internal constant PROXY_INIT_PHASE_SLOT = bytes32(uint256(keccak256("yura2100.token.ERC721.ERC721Minter.phase")) - 1);
 
     /// @notice Initializes the storage with the maximum token ID and the ERC721 token contract.
     /// @notice Marks the following ERC165 interfaces as supported: ERC721Minter.

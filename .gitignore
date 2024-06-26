@@ -1,17 +1,45 @@
-node_modules
-.env
+# npm
+node_modules/
+.npmrc*
 
-# Hardhat files
-/cache
-/artifacts
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
 
-# TypeChain files
-/typechain
-/typechain-types
+# yalc
+.yalc
+yalc.lock
 
-# solidity-coverage files
-/coverage
-/coverage.json
+# vscode
+.vscode/*
+!.vscode/settings.json.default
+!.vscode/launch.json.default
+!.vscode/extensions.json.default
 
-# Hardhat Ignition default folder for deployments against a local node
-ignition/deployments/chain-31337
+# env
+.env*
+!.env.example
+
+# solc
+cache/
+artifacts/*
+!artifacts/contracts/
+!artifacts/build-info/
+
+# solidity-coverage
+coverage/
+coverage.json
+*.coverage/
+
+# solidity-docgen
+docs/
+
+# hardhat plugins
+flattened*
+hardhat.config.last.json
+
+# misc
+*.log
+.DS_Store

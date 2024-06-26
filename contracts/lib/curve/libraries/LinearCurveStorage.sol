@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import {InterfaceDetectionStorage} from
-    "@animoca/ethereum-contracts/contracts/introspection/libraries/InterfaceDetectionStorage.sol";
+import {InterfaceDetectionStorage} from "@animoca/ethereum-contracts/contracts/introspection/libraries/InterfaceDetectionStorage.sol";
 import {ProxyInitialization} from "@animoca/ethereum-contracts/contracts/proxy/libraries/ProxyInitialization.sol";
 import {ICurve} from "../interfaces/ICurve.sol";
 import {ILinearCurve} from "../interfaces/ILinearCurve.sol";
@@ -19,10 +18,8 @@ library LinearCurveStorage {
         uint256 denominator;
     }
 
-    bytes32 internal constant LAYOUT_STORAGE_SLOT =
-        bytes32(uint256(keccak256("yura2100.curve.LinearCurve.storage")) - 1);
-    bytes32 internal constant PROXY_INIT_PHASE_SLOT =
-        bytes32(uint256(keccak256("yura2100.curve.LinearCurve.phase")) - 1);
+    bytes32 internal constant LAYOUT_STORAGE_SLOT = bytes32(uint256(keccak256("yura2100.curve.LinearCurve.storage")) - 1);
+    bytes32 internal constant PROXY_INIT_PHASE_SLOT = bytes32(uint256(keccak256("yura2100.curve.LinearCurve.phase")) - 1);
 
     /// @notice Initializes the storage with an initial price, slope numerator, and slope denominator (immutable version).
     /// @notice Marks the following ERC165 interface(s) as supported: ICurve, ILinearCurve.
@@ -34,9 +31,7 @@ library LinearCurveStorage {
     /// @param numerator The slope numerator.
     /// @param denominator The slope denominator.
     /// @param operator The address of the operator performing the initialization.
-    function constructorInit(Layout storage s, uint256 price, uint256 numerator, uint256 denominator, address operator)
-        internal
-    {
+    function constructorInit(Layout storage s, uint256 price, uint256 numerator, uint256 denominator, address operator) internal {
         s.setInitialPrice(price, operator);
         s.setSlopeNumerator(numerator, operator);
         s.setSlopeDenominator(denominator, operator);
@@ -55,9 +50,7 @@ library LinearCurveStorage {
     /// @param price The initial price.
     /// @param numerator The slope numerator.
     /// @param denominator The slope denominator.
-    function proxyInit(Layout storage s, uint256 price, uint256 numerator, uint256 denominator, address operator)
-        internal
-    {
+    function proxyInit(Layout storage s, uint256 price, uint256 numerator, uint256 denominator, address operator) internal {
         ProxyInitialization.setPhase(PROXY_INIT_PHASE_SLOT, 1);
         s.constructorInit(price, numerator, denominator, operator);
     }
@@ -103,11 +96,7 @@ library LinearCurveStorage {
     /// @param totalSupply The total supply of the tokens.
     /// @param amount The amount to mint.
     /// @return price The price of the token.
-    function calculatePrice(Layout storage s, uint256 totalSupply, uint256 amount)
-        internal
-        view
-        returns (uint256 price)
-    {
+    function calculatePrice(Layout storage s, uint256 totalSupply, uint256 amount) internal view returns (uint256 price) {
         uint256 newSupply = totalSupply + amount - 1;
         return s.price + (newSupply * s.numerator) / s.denominator;
     }

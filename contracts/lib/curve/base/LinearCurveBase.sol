@@ -5,8 +5,7 @@ import {ICurve} from "../interfaces/ICurve.sol";
 import {ILinearCurve} from "../interfaces/ILinearCurve.sol";
 import {LinearCurveStorage} from "../libraries/LinearCurveStorage.sol";
 import {Context} from "@openzeppelin/contracts/utils/Context.sol";
-import {ContractOwnershipStorage} from
-    "@animoca/ethereum-contracts/contracts/access/libraries/ContractOwnershipStorage.sol";
+import {ContractOwnershipStorage} from "@animoca/ethereum-contracts/contracts/access/libraries/ContractOwnershipStorage.sol";
 
 /// @title Linear Curve contract for calculating the price of a token.
 /// @dev The curve is defined by the price function `calculatePrice` in {ICurve} interface.
